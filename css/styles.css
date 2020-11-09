@@ -1,0 +1,155 @@
+html,
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    margin: 0;
+    background-color: white;
+}
+
+.image-container {
+    overflow: hidden;
+}
+
+.image-container img {
+    margin-top: 7%;
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.images {
+    margin-bottom: 20%;
+}
+
+.images .image-container {
+    display: inline-block;
+    width: 48%;
+}
+
+h1 {
+    font-size: 3.75rem;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    text-align: center;
+    margin: .5rem;
+}
+
+.project-section {
+    width: 85%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.project-section .post {
+    width: 65%;
+    margin-top: 5%;
+    margin-bottom: 7.5%;
+    display: flex;
+    flex-direction: column;
+    font-weight: 300;
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+@media all and (min-width: 800px) and (max-width: 1200px) {
+    .project-section .post {
+        width: 78%;
+    }
+}
+
+@media all and (max-width: 800px) {
+    .project-section .post {
+        width: 95%;
+    }
+}
+
+.post h2 {
+    font-size: 1.875rem;
+    margin-bottom: 1.5rem;
+}
+
+.post h3 {
+    text-align: center;
+    font-size: 1.4rem;
+    margin: 2%;
+}
+
+.post ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.post p,
+.post .image-container {
+    margin-bottom: 2rem;
+}
+
+.post .image-container {
+    width: 100%;
+}
+
+footer {
+    font-weight: 300;
+    color: hsl(231, 67%, 41%);
+    padding: 1rem 0;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.125rem;
+    text-align: center;
+}
+
+nav {
+    font-weight: 300;
+    color: hsl(231, 67%, 41%);
+    padding-left: 30px;
+    padding-right: 10px;
+    display: flex;
+    font-size: 1.125rem;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+}
+
+.logo {
+    font-size: 2rem;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-item a {
+    display: inline-block;
+    padding: 10px 15px;
+    text-decoration: none;
+}
+
+.nav-item:hover {
+    color: hsl(231, 66%, 80%);
+}
+
+
+/* .nav-item:hover a {
+    color: hsl(231, 67%, 41%);
+} */
+
+.logo img {
+    width: 175px;
+    vertical-align: middle;
+}
+
+a,
+a:visited {
+    color: hsl(231, 67%, 41%);
+}
+
+a:hover {
+    color: transparent;
+    text-shadow: 0 0 8px hsl(231, 67%, 41%);
+    cursor: pointer;
+}
