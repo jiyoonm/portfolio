@@ -1,9 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap');
 html,
 body {
-    font-family: 'Roboto', sans-serif;
-    font-size: 16px;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: calc(.5vw + 11.976px);
     margin: 0;
-    background-color: white;
+}
+
+#banner {
+    background: rgb(83, 64, 255);
+}
+
+#banner h1 {
+    font-weight: 300;
+    font-size: calc(3.3vw + 11.976px);
+    color: white;
+    text-align: left;
+}
+
+img {
+    max-width: 100%;
+    text-align: center;
+    margin: auto;
+}
+
+.row {
+    /* width: 100vw; */
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    text-align: center;
+    padding: 5%;
+    padding-top: calc(80vmax / 9);
+    padding-bottom: calc(80vmax / 7);
+}
+
+
+/* Create four equal columns */
+
+.column1 {
+    width: 60%;
+    padding: 2%;
+}
+
+.column2 {
+    padding: 2%;
+    width: 30%;
+}
+
+
+/* .column3 {
+    width: 100%;
+    height: calc(80vmax / 15);
+} */
+
+
+/* On screens that are 992px wide or less, go from four columns to two columns */
+
+@media screen and (max-width: 992px) {
+    .row {
+        flex-direction: column;
+    }
+    #banner img {
+        max-width: 50%;
+    }
+    .column1,
+    .column2 {
+        width: 95%;
+    }
+    /* .column2 {
+width: 35%;
+} */
+}
+
+
+/* On screens that are 600px wide or less, make the columns stack on top of each other instead of next to each other */
+
+@media screen and (max-width: 600px) {
+    .row {
+        flex-direction: column;
+    }
+    #banner img {
+        max-width: 70%;
+    }
 }
 
 .image-container {
@@ -11,14 +89,14 @@ body {
 }
 
 .image-container img {
-    margin-top: 7%;
+    margin-top: 3%;
     display: block;
     max-width: 100%;
     height: auto;
 }
 
 .images {
-    margin-bottom: 20%;
+    margin-bottom: 10%;
 }
 
 .images .image-container {
@@ -27,8 +105,7 @@ body {
 }
 
 h1 {
-    font-size: 3.75rem;
-    font-family: 'Roboto', sans-serif;
+    font-size: calc(3vw + 11.976px);
     font-weight: 300;
     text-align: center;
     margin: .5rem;
@@ -71,9 +148,11 @@ h1 {
 }
 
 .post h3 {
+    /* color: rgb(83, 64, 255); */
     text-align: center;
     font-size: 1.4rem;
-    margin: 2%;
+    margin-top: 15%;
+    margin-bottom: 1%;
 }
 
 .post ul {
@@ -92,17 +171,17 @@ h1 {
 }
 
 footer {
-    font-weight: 300;
-    color: hsl(231, 67%, 41%);
+    background: rgb(83, 64, 255);
+    color: rgb(158, 147, 255);
     padding: 1rem 0;
-    font-family: 'Roboto', sans-serif;
     font-size: 1.125rem;
     text-align: center;
 }
 
 nav {
     font-weight: 300;
-    color: hsl(231, 67%, 41%);
+    color: white;
+    background: rgb(83, 64, 255);
     padding-left: 30px;
     padding-right: 10px;
     display: flex;
@@ -133,11 +212,6 @@ nav {
     color: hsl(231, 66%, 80%);
 }
 
-
-/* .nav-item:hover a {
-    color: hsl(231, 67%, 41%);
-} */
-
 .logo img {
     width: 175px;
     vertical-align: middle;
@@ -145,11 +219,114 @@ nav {
 
 a,
 a:visited {
-    color: hsl(231, 67%, 41%);
+    color: white;
 }
 
 a:hover {
     color: transparent;
-    text-shadow: 0 0 8px hsl(231, 67%, 41%);
+    text-shadow: 0 0 8px white;
     cursor: pointer;
+}
+
+.items {
+    width: 78vw;
+    height: 78vw;
+    float: left;
+    text-align: center;
+    background-color: yellow;
+    margin: 1vw;
+}
+
+#desktop {
+    width: 80vw;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+}
+
+#desktop a {
+    margin: 2vw;
+    color: white;
+    text-decoration: none;
+}
+
+#mobile a {
+    margin: 2vw;
+    color: black;
+    text-decoration: none;
+}
+
+#mobile {
+    display: none;
+}
+
+#work {
+    /* width: 100vw; */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-top: calc(80vmax / 9);
+    padding-bottom: calc(80vmax / 7);
+}
+
+@media all and (min-width: 800px) and (max-width: 1200px) {
+    body {}
+    .items {
+        width: calc(76vw/2);
+        height: calc(76vw/2);
+        float: left;
+        text-align: center;
+        background-color: lightskyblue;
+        margin: 1vw;
+    }
+}
+
+@media all and (min-width: 1201px) {
+    body {}
+    .items {
+        width: calc(74vw/3);
+        height: calc(74vw/3);
+        float: left;
+        text-align: center;
+        background-color: whitesmoke;
+        margin: 1vw;
+    }
+}
+
+@media all and (max-device-width: 480px) and (orientation: portrait) {
+    body {}
+    .items {
+        width: 78vw;
+        height: 78vw;
+        float: left;
+        text-align: center;
+        background-color: black;
+        margin: 1vw;
+    }
+    #desktop {
+        display: none;
+    }
+    #mobile {
+        display: inline-block;
+    }
+}
+
+@media all and (max-device-width: 480px) and (orientation: landscape) {
+    body {}
+    .items {
+        width: calc(74vw/3);
+        height: calc(74vw/3);
+        float: left;
+        text-align: center;
+        background-color: black;
+        margin: 1vw;
+    }
+    #desktop {
+        display: none;
+    }
+    #mobile {
+        display: inline-block;
+    }
 }
