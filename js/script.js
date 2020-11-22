@@ -33,35 +33,51 @@ var fetchRecord = function(slug) {
         view: "Grid view"
     }).eachPage(function page(records, fetchNextPage) {
             records.forEach(function(record) {
-                data.push({ name: record.fields.Name, img: record.fields.FinalImages[0]['url'], collab: record.fields.Collaborators, role: record.fields.Role, description: record.fields.Description });
+                data.push({ name: record.fields.Name, img: record.fields.FinalImages[0]['url'], collab: record.fields.Collaborators, skills: record.fields.Skills, role: record.fields.Role, time: record.fields.TimeFrame, about: record.fields.Description, overview: record.fields.Overview, concept: record.fields.Concept, prototype: record.fields.Prototype, final: record.fields.Final });
                 $(".type-heading-2").append(data[0].name);
-                $(".type-body-2").append(data[0].description);
+                $("#about").append(data[0].about);
+                $("#skills").append(data[0].skills);
+                $("#role").append(data[0].role);
+                $("#collab").append(data[0].collab);
+                $("#time").append(data[0].time);
+                $("#overview").append(data[0].overview);
+                $("#concept").append(data[0].concept);
+                $("#prototype").append(data[0].prototype);
+                $("#final").append(data[0].final);
 
+
+                $("#ki").attr("src", record.fields.VideoFinal);
                 record.fields.FinalImages.forEach(function(attachment) {
                     $('<img />', {
                         src: attachment.url,
                     }).appendTo($(".image-container"))
                 });
-                record.fields.ConceptImages.forEach(function(attachment) {
-                    $('<img />', {
-                        src: attachment.url,
-                    }).appendTo($(".image-container1"))
-                });
-                record.fields.ProcessImages.forEach(function(attachment) {
-                    $('<img />', {
-                        src: attachment.url,
-                    }).appendTo($(".image-container2"))
-                });
-                record.fields.LastImage.forEach(function(attachment) {
-                    $('<img />', {
-                        src: attachment.url,
-                    }).appendTo($(".image-container3"))
-                });
-                record.fields.VideoFinal.forEach(function(link) {
-                    $('<img />', {
-                        src: attachment.url,
-                    }).appendTo($(".image-container4"))
-                });
+
+                if (record.fields.ConceptImages && record.fields.ConceptImages.length > 0) {
+
+                    record.fields.ConceptImages.forEach(function(attachment) {
+                        $('<img />', {
+                            src: attachment.url,
+                        }).appendTo($(".image-container1"))
+                    });
+                }
+
+                if (record.fields.ProcessImages && record.fields.ProcessImages.length > 0) {
+                    record.fields.ProcessImages.forEach(function(attachment) {
+                        $('<img />', {
+                            src: attachment.url,
+                        }).appendTo($(".image-container2"))
+                    });
+                }
+
+                if (record.fields.LastImage && record.fields.LastImage.length > 0) {
+                    record.fields.LastImage.forEach(function(attachment) {
+                        $('<img />', {
+                            src: attachment.url,
+                        }).appendTo($(".image-container3"))
+                    });
+                }
+
             });
             // records.forEach(function(record) {
             //     heading.innerHTML = record.fields.Name;
