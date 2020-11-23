@@ -46,7 +46,6 @@ var fetchRecord = function(slug) {
                 $("#final").append(data[0].final);
 
 
-                $("#ki").attr("src", record.fields.VideoFinal);
                 record.fields.FinalImages.forEach(function(attachment) {
                     $('<img />', {
                         src: attachment.url,
@@ -77,12 +76,16 @@ var fetchRecord = function(slug) {
                         }).appendTo($(".image-container3"))
                     });
                 }
+                if (record.fields.VideoFinal && record.fields.VideoFinal.length > 0) {
+                    $('.video-container').css("height", "70vh");
+
+                    $("#ki").attr("src", record.fields.VideoFinal);
+
+                }
+
 
             });
-            // records.forEach(function(record) {
-            //     heading.innerHTML = record.fields.Name;
-            //     headingimg.src = record.fields.FinalImages[0]['url'];
-            // });
+
         },
         function done(err) {
             if (err) { console.error(err); return; }
