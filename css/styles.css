@@ -5,12 +5,12 @@ body {
     font-size: 62.5%;
     margin: 0;
     color: #0e002b;
-    background-color: #f0f8f7;
+    background-color: #f3f3f3;
 }
 
 .type-heading-1 {
     font-weight: 500;
-    font-size: 5rem;
+    font-size: 5.7rem;
     margin: 1rem 0;
     color: #d4fcf4;
     text-align: left;
@@ -138,6 +138,7 @@ footer {
 
 /* nav page with data from airtable*/
 
+.work2,
 .work {
     margin-top: 0;
     display: flex;
@@ -146,29 +147,41 @@ footer {
     justify-content: center;
     align-items: center;
     padding: 20px;
-    padding-top: calc(80vmax / 20);
+    /* padding-top: calc(80vmax / 20);
+  */
+}
+
+.work2 {
     padding-bottom: calc(80vmax / 10);
 }
 
+.work {
+    padding-top: calc(80vmax / 20);
+}
+
+.work2>div,
 .work>div {
     width: 28%;
     height: auto;
     text-align: left;
-    margin: 3vh 1.5vw;
+    margin: .5vh 1.5vw;
 }
 
+.work2 .type-heading-2,
 .work .type-heading-2 {
     font-weight: 400;
     text-align: left;
     width: 89.5%;
-    padding-bottom: 3rem;
+    padding-bottom: 1rem;
 }
 
+.work2 a,
 .work a {
     font-size: 2rem;
     margin-top: 3rem;
 }
 
+.work2 p,
 .work p {
     color: #313bd0;
     font-weight: 400;
@@ -176,6 +189,7 @@ footer {
     line-height: 1.6;
 }
 
+.work2 img,
 .work img {
     margin-bottom: 3rem;
 }
@@ -196,9 +210,11 @@ footer {
     .value-list {
         width: 75%;
     }
+    .work2>div,
     .work>div {
         width: 65%;
     }
+    .work2 h2,
     .work h2 {
         width: 65%;
     }
@@ -208,9 +224,11 @@ footer {
     .banner img {
         max-width: 70%;
     }
+    .work2>div,
     .work>div {
         width: 95%;
     }
+    .work2 h2,
     .work h2 {
         width: 95%;
     }
@@ -563,12 +581,6 @@ i {
 .bubble-5 .bubble-animation-y {
     animation-delay: 7s;
 }
-
-
-/* 
-.bubble-container {
-    height: 80px;
-} */
 
 .bubble {
     margin-right: 20px;

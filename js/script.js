@@ -99,6 +99,7 @@ var makeNavigation = function() {
 
 
     var navigationContainer = document.querySelector('.work');
+    var navigationContainer2 = document.querySelector('.work2');
 
     base('Portfolio').select({
         view: "Grid view"
@@ -110,11 +111,10 @@ var makeNavigation = function() {
                 var anchor = document.createElement('a');
                 var about = document.createElement('p');
 
-                record.fields.FinalImages.forEach(function(attachment) {
-                    $('<img />', {
-                        src: attachment.url,
-                    }).appendTo(listItem)
-                });
+
+                $('<img />', {
+                    src: record.fields.FinalImages[0]['url'],
+                }).appendTo(listItem)
 
                 var heading = record.fields.Name;
                 anchor.innerHTML = heading;
@@ -122,8 +122,14 @@ var makeNavigation = function() {
                 about.innerHTML = record.fields.Description;
                 listItem.appendChild(anchor);
                 listItem.appendChild(about);
+                if (record.fields.Type == "project") {
 
-                navigationContainer.appendChild(listItem);
+                    navigationContainer.appendChild(listItem);
+                }
+                if (record.fields.Type == "website") {
+
+                    navigationContainer2.appendChild(listItem);
+                }
 
             });
         },
