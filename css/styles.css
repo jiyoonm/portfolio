@@ -330,6 +330,7 @@ section .type-heading-2 {
 }
 
 .name {
+    margin: 1rem 0;
     width: 40%;
     text-align: left;
 }
@@ -337,7 +338,7 @@ section .type-heading-2 {
 .name p,
 .name h2 {
     width: 80%;
-    margin: auto;
+    margin: 2rem auto;
     color: #d4fcf4;
     text-align: left;
 }
@@ -579,7 +580,7 @@ i {
 
 .bubble {
     margin-right: 20px;
-    border: .2rem solid #444ee0;
+    border: .2rem solid #4c56e6;
     opacity: 0;
     border-radius: 100%;
     width: 25px;
@@ -648,11 +649,11 @@ i {
         width: 75%;
     }
     .work2>div,
-    .work>div,
-    .title>div,
-    .overview-container ul,
-    .overview-container p {
+    .work>div {
         width: 65%;
+    }
+    .title>div {
+        width: 100%;
     }
     .work2 h2,
     .work h2 {
@@ -660,6 +661,9 @@ i {
     }
     .section .post {
         width: 78%;
+    }
+    .overview-container>div {
+        width: 100%;
     }
 }
 
@@ -672,9 +676,7 @@ i {
         width: 95%;
     }
     .work2 h2,
-    .work h2,
-    .overview-container ul,
-    .overview-container p {
+    .work h2 {
         width: 95%;
     }
     .value-list {
@@ -682,8 +684,5 @@ i {
     }
     .section .post {
         width: 95%;
-    }
-    .title>div {
-        width: 100%;
     }
 }
