@@ -104,9 +104,9 @@ var makeButtonNav = function(slug) {
                 for (let i = 0; i < slugs.length; i++) {
                     if (slug == slugs[i]) {
                         $('#previous').click(function() {
-                            if (i < 0) {
+                            if (i > 0) {
                                 i--;
-                            } else {
+                            } else if (i == 0) {
                                 i = slugs.length - 1;
                             }
                             window.location.href = "content.html?" + slugs[i];
@@ -114,7 +114,7 @@ var makeButtonNav = function(slug) {
                         $('#next').click(function() {
                             if (i < slugs.length - 1) {
                                 i++;
-                            } else {
+                            } else if (i == slugs.length - 1) {
                                 i = 0;
                             }
                             window.location.href = "content.html?" + slugs[i];

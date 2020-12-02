@@ -20,6 +20,7 @@ body {
 .type-heading-2 {
     color: #313bd0;
     font-weight: 300;
+    line-height: 1.2;
     font-size: 4.5rem;
     margin: 2rem 0px;
     text-align: center;
@@ -195,63 +196,19 @@ footer {
     margin-bottom: 3rem;
 }
 
-@media screen and (max-width: 992px) {
-    .row,
-    .work,
-    .values {
-        flex-direction: column;
-    }
-    .banner img {
-        max-width: 50%;
-    }
-    .column1,
-    .column2 {
-        width: 95%;
-    }
-    .value-list {
-        width: 75%;
-    }
-    .work2>div,
-    .work>div {
-        width: 65%;
-    }
-    .work2 h2,
-    .work h2 {
-        width: 65%;
-    }
-}
-
-@media screen and (max-width: 600px) {
-    .banner img {
-        max-width: 70%;
-    }
-    .work2>div,
-    .work>div {
-        width: 95%;
-    }
-    .work2 h2,
-    .work h2 {
-        width: 95%;
-    }
-    .value-list {
-        width: 95%;
-    }
-}
-
 
 /* image containers for dynamic content */
 
 .image-container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
 }
 
 .image-container img {
-    margin-top: 3%;
     max-width: 100%;
-    max-height: 70vh;
+    /* max-height: 80vh; */
 }
 
 .video-container {
@@ -284,12 +241,11 @@ footer {
 .image-container2 {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
 }
 
 .image-container2 img {
-    margin: 1rem;
+    margin: 1rem 2rem 1rem 0;
+    /* text-align: left; */
     max-width: 90%;
     max-height: 70vh;
     /* max-height: 40vw; */
@@ -298,19 +254,16 @@ footer {
 .image-container3 {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
 }
 
 .image-container3 img {
-    margin: 1rem;
-    max-width: 100%;
+    margin: 1rem 2rem 1rem 0;
+    max-width: 90%;
     max-height: 70vh;
     /* height: 60vh; */
 }
 
 .section {
-    width: 85%;
     margin: auto;
     display: flex;
     flex-direction: column;
@@ -320,20 +273,42 @@ footer {
     line-height: 1.8;
 }
 
+.overview-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 5rem 0;
+    /* border-top: solid; */
+}
+
+.overview-container h3 {
+    width: 100%;
+}
+
+.col {
+    width: 48%;
+}
+
+.colIm {
+    margin-top: 3rem;
+    width: 100%;
+}
+
 .post {
-    width: 70%;
-    margin-top: 5%;
+    align-items: left;
+    width: 80%;
+    margin-left: 2rem;
     margin-bottom: 7.5%;
     display: flex;
     flex-direction: column;
 }
 
 .post .type-heading-3 {
-    margin-top: 18vh;
+    text-align: left;
 }
 
-.post .type-body-1 {
-    margin-bottom: 3rem;
+section .type-heading-2 {
+    color: white;
 }
 
 .post ul {
@@ -342,16 +317,29 @@ footer {
     padding: 0;
 }
 
-@media all and (min-width: 800px) and (max-width: 1200px) {
-    .section .post {
-        width: 78%;
-    }
+.title {
+    background-color: #0e002b;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
 }
 
-@media all and (max-width: 800px) {
-    .section .post {
-        width: 95%;
-    }
+.head-image {
+    width: 60%;
+}
+
+.name {
+    width: 40%;
+    text-align: left;
+}
+
+.name p,
+.name h2 {
+    width: 80%;
+    margin: auto;
+    color: #d4fcf4;
+    text-align: left;
 }
 
 
@@ -591,7 +579,7 @@ i {
 
 .bubble {
     margin-right: 20px;
-    border: .2rem solid rgb(56, 238, 192);
+    border: .2rem solid #444ee0;
     opacity: 0;
     border-radius: 100%;
     width: 25px;
@@ -638,5 +626,64 @@ i {
     100% {
         transform: translateY(-300px);
         opacity: 0;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .row,
+    .work,
+    .values,
+    .overview-container,
+    .title {
+        flex-direction: column;
+    }
+    .banner img {
+        max-width: 50%;
+    }
+    .column1,
+    .column2 {
+        width: 95%;
+    }
+    .value-list {
+        width: 75%;
+    }
+    .work2>div,
+    .work>div,
+    .title>div,
+    .overview-container ul,
+    .overview-container p {
+        width: 65%;
+    }
+    .work2 h2,
+    .work h2 {
+        width: 65%;
+    }
+    .section .post {
+        width: 78%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .banner img {
+        max-width: 70%;
+    }
+    .work2>div,
+    .work>div {
+        width: 95%;
+    }
+    .work2 h2,
+    .work h2,
+    .overview-container ul,
+    .overview-container p {
+        width: 95%;
+    }
+    .value-list {
+        width: 95%;
+    }
+    .section .post {
+        width: 95%;
+    }
+    .title>div {
+        width: 100%;
     }
 }
