@@ -1,4 +1,5 @@
 var data = [];
+var slugs = [];
 
 var Airtable = require('airtable');
 var base = new Airtable({ apiKey: 'keyJvXFNWQIMm9EA2' }).base('apppokoJI4UZZFapT');
@@ -93,7 +94,39 @@ var fetchRecord = function(slug) {
     console.log(data);
 
 }
+var makeButtonNav = function(slug) {
 
+    base('Portfolio').select({
+        view: "Grid view"
+    }).eachPage(function page(records, fetchNextPage) {
+            records.forEach(function(record) {
+                slugs.push(record.fields.Slug);
+                for (let i = 0; i < slugs.length; i++) {
+                    if (slug == slugs[i]) {
+                        $('#previous').click(function() {
+                            if (i < 0) {
+                                i--;
+                            } else {
+                                i = slugs.length - 1;
+                            }
+                            window.location.href = "content.html?" + slugs[i];
+                        });
+                        $('#next').click(function() {
+                            if (i < slugs.length - 1) {
+                                i++;
+                            } else {
+                                i = 0;
+                            }
+                            window.location.href = "content.html?" + slugs[i];
+                        });
+                    }
+                }
+            });
+        },
+        function done(err) {
+            if (err) { console.error(err); return; }
+        });
+}
 
 var makeNavigation = function() {
 
@@ -105,6 +138,7 @@ var makeNavigation = function() {
         view: "Grid view"
     }).eachPage(function page(records, fetchNextPage) {
             records.forEach(function(record) {
+
                 var link = 'content.html?' + record.fields.Slug;
 
                 var listItem = document.createElement('div');
@@ -130,8 +164,8 @@ var makeNavigation = function() {
 
                     navigationContainer2.appendChild(listItem);
                 }
-
             });
+
         },
         function done(err) {
             if (err) { console.error(err); return; }
@@ -144,4 +178,5 @@ $(() => {
     fetchRecord(slug);
 
     makeNavigation();
+    makeButtonNav(slug);
 })
