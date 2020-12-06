@@ -144,6 +144,8 @@ var makeNavigation = function() {
                 var listItem = document.createElement('div');
                 var anchor = document.createElement('a');
                 var about = document.createElement('p');
+                var name = document.createElement('h3');
+
 
 
                 $('<img />', {
@@ -151,18 +153,22 @@ var makeNavigation = function() {
                 }).appendTo(listItem)
 
                 var heading = record.fields.Name;
-                anchor.innerHTML = heading;
+
+                name.innerHTML = heading + "<span class='diss'> &#8594</span>" + '<span class="slider" style="background-color: white"></span> ';
                 anchor.setAttribute('href', link);
                 about.innerHTML = record.fields.Description;
-                listItem.appendChild(anchor);
+                listItem.appendChild(name);
+
                 listItem.appendChild(about);
+                anchor.appendChild(listItem);
+
                 if (record.fields.Type == "project") {
 
-                    navigationContainer.appendChild(listItem);
+                    navigationContainer.appendChild(anchor);
                 }
                 if (record.fields.Type == "website") {
 
-                    navigationContainer2.appendChild(listItem);
+                    navigationContainer2.appendChild(anchor);
                 }
             });
 
