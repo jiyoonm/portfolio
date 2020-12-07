@@ -48,30 +48,48 @@ var fetchRecord = function(slug) {
 
 
                 record.fields.FinalImages.forEach(function(attachment) {
-                    $('<img />', {
-                        src: attachment.url,
-                    }).appendTo($(".image-container"))
+                    if (attachment.thumbnails) {
+                        console.log("hi")
+                        $('<img />', {
+                            src: attachment.thumbnails.full.url,
+                        }).appendTo($(".image-container"))
+                    } else {
+                        $('<img />', {
+                            src: attachment.url,
+                        }).appendTo($(".image-container1"))
+                    }
                 });
 
                 if (record.fields.ConceptImages && record.fields.ConceptImages.length > 0) {
 
                     record.fields.ConceptImages.forEach(function(attachment) {
-                        $('<img />', {
-                            src: attachment.url,
-                        }).appendTo($(".image-container1"))
+                        if (attachment.thumbnails) {
+                            console.log("hi")
+                            $('<img />', {
+                                src: attachment.thumbnails.large.url,
+                            }).appendTo($(".image-container1"))
+                        } else {
+                            $('<img />', {
+                                src: attachment.url,
+                            }).appendTo($(".image-container1"))
+                        }
                     });
                 }
 
                 if (record.fields.ProcessImages && record.fields.ProcessImages.length > 0) {
+
                     record.fields.ProcessImages.forEach(function(attachment) {
+
                         $('<img />', {
                             src: attachment.url,
                         }).appendTo($(".image-container2"))
+
                     });
                 }
 
                 if (record.fields.LastImage && record.fields.LastImage.length > 0) {
                     record.fields.LastImage.forEach(function(attachment) {
+
                         $('<img />', {
                             src: attachment.url,
                         }).appendTo($(".image-container3"))
@@ -149,7 +167,7 @@ var makeNavigation = function() {
 
 
                 $('<img />', {
-                    src: record.fields.FinalImages[0]['url'],
+                    src: record.fields.FinalImages[0].url,
                 }).appendTo(listItem)
 
                 var heading = record.fields.Name;

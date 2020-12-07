@@ -28,9 +28,7 @@ function update(data) {
 
     u.enter()
         .append('button')
-
-
-    .attr('class', 'button-three')
+        .attr('class', 'button-three')
         .merge(u)
         .text(function(d) {
             return d.text;
@@ -38,17 +36,17 @@ function update(data) {
         .on("click", function(d, i) {
             window.open(d.url, "_blank");
         })
-        .transition()
-        .style('right', function(d, i) {
-            return i * 32 + 'px';
-        });
+        .transition() // apply a transition
+        .ease(d3.easeLinear) // control the speed of the transition
+        .duration(4000);
 
     u.exit()
+        // .transition()
+        // .style('left', function(d, i) {
+        //     return i * 32 + 'px';
+        // })
         .transition()
-        .transition()
-        .style('left', function(d, i) {
-            return i * 32 + 'px';
-        })
+        .duration(500)
         .style("opacity", 0)
         .remove();
 }
@@ -74,7 +72,7 @@ setInterval(function() {
 
     data = data.slice(0, rand);
     update(data);
-}, 3500);
+}, 2500);
 
 function shuffle(array) {
     array.sort(() => Math.random() - 0.5);
