@@ -86,6 +86,12 @@ var fetchRecord = function(slug) {
 
                     });
                 }
+                if (record.fields.ProcessVideo && record.fields.ProcessVideo.length > 0) {
+                    $('.video-container1').css("height", "70vh");
+
+                    $("#vid").attr("src", record.fields.ProcessVideo);
+
+                }
 
                 if (record.fields.LastImage && record.fields.LastImage.length > 0) {
                     record.fields.LastImage.forEach(function(attachment) {
