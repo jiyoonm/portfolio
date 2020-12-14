@@ -211,7 +211,6 @@ var makeNavigation = function() {
 
                     navigationContainer2.appendChild(anchor);
                 }
-                $('button-three').css("z-index", "1");
 
       
 
