@@ -4,7 +4,6 @@ var data = [
     { "text": "#student", "url": "https://www.newschool.edu/parsons/" },
     { "text": "#dataviz", "url": "content.html?wifi" },
     { "text": "#d3.js", "url": "content.html?milk" },
-    { "text": "#restaurants", "url": "https://www.yelp.com/biz/pho-bang-restaurant-new-york" },
     { "text": "#quantum", "url": "content.html?quantum" },
     { "text": "#newyork", "url": "https://weather.com/weather/tenday/l/New+York+City+NY?canonicalCityId=a701ee19c4ab71bbbe2f6ba2fe8c250913883e5ae9b8eee8b54f8efbdb3eec03" },
     { "text": "#storytelling", "url": "content.html?garden" },
@@ -15,8 +14,12 @@ var data = [
 update(data);
 
 function update(data) {
+
     var u = d3.select('#content')
         .selectAll('button')
+
+
+
 
     .data(data, function(d) {
             return d.text;
@@ -27,16 +30,20 @@ function update(data) {
 
 
     u.enter()
-        .append('button')
-        .attr('class', 'button-three')
+
+    .append('button')
+
+    .attr('class', 'button-three')
         .merge(u)
         .text(function(d) {
             return d.text;
         })
-        .on("click", function(d, i) {
-            window.open(d.url, "_blank");
-        })
-        .transition() // apply a transition
+
+    .on("click", function(d, i) {
+        window.open(d.url, "_blank");
+    })
+
+    .transition() // apply a transition
         .ease(d3.easeLinear) // control the speed of the transition
         .duration(4000);
 
@@ -47,7 +54,8 @@ function update(data) {
         // })
         .transition()
         .duration(500)
-        .style("opacity", 0)
+
+    .style("opacity", 0)
         .remove();
 }
 

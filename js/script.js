@@ -49,7 +49,6 @@ var fetchRecord = function(slug) {
 
                 record.fields.FinalImages.forEach(function(attachment) {
                     if (attachment.thumbnails) {
-                        console.log("hi")
                         $('<img />', {
                             src: attachment.thumbnails.full.url,
                         }).appendTo($(".image-container"))
@@ -64,7 +63,6 @@ var fetchRecord = function(slug) {
 
                     record.fields.ConceptImages.forEach(function(attachment) {
                         if (attachment.thumbnails) {
-                            console.log("hi")
                             $('<img />', {
                                 src: attachment.thumbnails.large.url,
                             }).appendTo($(".image-container1"))
@@ -87,7 +85,7 @@ var fetchRecord = function(slug) {
                     });
                 }
                 if (record.fields.ProcessVideo && record.fields.ProcessVideo.length > 0) {
-                    $('.video-container1').css("height", "70vh");
+                    $('.video-container1').css("height", "75vh");
 
                     $("#vid").attr("src", record.fields.ProcessVideo);
 
@@ -115,7 +113,6 @@ var fetchRecord = function(slug) {
         function done(err) {
             if (err) { console.error(err); return; }
         });
-    console.log(data);
 
 }
 var makeButtonNav = function(slug) {
@@ -157,15 +154,31 @@ var makeNavigation = function() {
 
     var navigationContainer = document.querySelector('.work');
     var navigationContainer2 = document.querySelector('.work2');
+    var navigationContainer3 = document.querySelector('#navcon');
+
 
     base('Portfolio').select({
         view: "Grid view"
     }).eachPage(function page(records, fetchNextPage) {
             records.forEach(function(record) {
-
                 var link = 'content.html?' + record.fields.Slug;
+                var heading = record.fields.Name;
 
-                var listItem = document.createElement('div');
+
+                //nav bar 
+                var list = document.createElement('li');
+                var anchor1 = document.createElement('a');
+                list.classList.add('item');
+                anchor1.setAttribute('href', link);
+                anchor1.innerHTML = heading;
+                list.appendChild(anchor1);
+                navigationContainer3.appendChild(list);
+
+
+
+                //Home page nav
+                var listItem = document.createElement('div')
+                listItem.classList.add('items');
                 var anchor = document.createElement('a');
                 var about = document.createElement('p');
                 var name = document.createElement('h3');
@@ -173,10 +186,14 @@ var makeNavigation = function() {
 
 
                 $('<img />', {
+                    
                     src: record.fields.FinalImages[0].url,
-                }).appendTo(listItem)
+        
 
-                var heading = record.fields.Name;
+
+                }).appendTo(listItem)
+                
+
 
                 name.innerHTML = heading + "<span class='diss'> &#8594</span>" + '<span class="slider" style="background-color: white"></span> ';
                 anchor.setAttribute('href', link);
@@ -186,14 +203,18 @@ var makeNavigation = function() {
                 listItem.appendChild(about);
                 anchor.appendChild(listItem);
 
-                if (record.fields.Type == "project") {
+                if (record.fields.Type == "project" && navigationContainer) {
 
                     navigationContainer.appendChild(anchor);
                 }
-                if (record.fields.Type == "website") {
+                if (record.fields.Type == "website" && navigationContainer2) {
 
                     navigationContainer2.appendChild(anchor);
                 }
+                $('button-three').css("z-index", "1");
+
+      
+
             });
 
         },
@@ -210,3 +231,39 @@ $(() => {
     makeNavigation();
     makeButtonNav(slug);
 })
+
+var btn = document.getElementById("btn");
+
+function myFunction() {
+
+    document.getElementById("myDropdown").classList.toggle("show");
+    document.getElementById("overlay").classList.toggle("p");
+    document.getElementById("btn").classList.toggle("dark1");
+
+
+
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+    if (!event.target.matches('.dropbtn')) {
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        var overlay = document.getElementById("overlay");
+        var btn = document.getElementById("btn");
+
+        var i;
+        for (i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains('show')) {
+                openDropdown.classList.remove('show');
+                overlay.classList.remove('p');
+                btn.classList.remove('dark1');
+
+
+            }
+        }
+    }
+}
+
+
+
