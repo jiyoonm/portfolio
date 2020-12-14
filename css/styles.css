@@ -548,7 +548,7 @@ section .type-heading-2 {
 }
 
 .dark {
-    background-color: #d4fcf4;
+    background-color: rgb(56, 238, 192);
 }
 
 .dropbtn:focus {
@@ -601,7 +601,7 @@ padding-right:0;}
 }
 
 .dark1 {
-    background: #d4fcf4;
+    background-color: rgb(56, 238, 192);
 }
 
 .navbar a:hover {
