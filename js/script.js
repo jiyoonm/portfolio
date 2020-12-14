@@ -34,7 +34,7 @@ var fetchRecord = function(slug) {
         view: "Grid view"
     }).eachPage(function page(records, fetchNextPage) {
             records.forEach(function(record) {
-                data.push({ name: record.fields.Name, img: record.fields.FinalImages[0]['url'], collab: record.fields.Collaborators, skills: record.fields.Skills, role: record.fields.Role, time: record.fields.TimeFrame, about: record.fields.Description, overview: record.fields.Overview, concept: record.fields.Concept, prototype: record.fields.Prototype, final: record.fields.Final });
+                data.push({ name: record.fields.Name, img: record.fields.FinalImages[0]['url'], collab: record.fields.Collaborators, skills: record.fields.Skills, role: record.fields.Role, time: record.fields.TimeFrame, about: record.fields.Description, overview: record.fields.Overview, concept: record.fields.Concept, prototype: record.fields.Prototype, final: record.fields.Final, overviewHead: record.fields.OverviewHeading, conceptHead: record.fields.ConceptHeading, processHead: record.fields.ProcessHeading, finalHead: record.fields.FinalHeading});
                 $(".type-heading-2").append(data[0].name);
                 $("#about").append(data[0].about);
                 $("#skills").append(data[0].skills);
@@ -45,6 +45,10 @@ var fetchRecord = function(slug) {
                 $("#concept").append(data[0].concept);
                 $("#prototype").append(data[0].prototype);
                 $("#final").append(data[0].final);
+                $("#overview-head").append(data[0].overviewHead);
+                $("#concept-head").append(data[0].conceptHead);
+                $("#process-head").append(data[0].processHead);
+                $("#final-head").append(data[0].finalHead);
 
 
                 record.fields.FinalImages.forEach(function(attachment) {
