@@ -52,11 +52,11 @@ function update(data) {
         // .style('left', function(d, i) {
         //     return i * 32 + 'px';
         // })
-        .transition()
-        .duration(500)
+        //     .transition()
+        //     .duration(500)
 
-    .style("opacity", 0)
-        .remove();
+    // .style("opacity", 0)
+    .remove();
 }
 
 setInterval(function() {

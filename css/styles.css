@@ -252,6 +252,31 @@ footer .type-heading-2 {
     margin-bottom: 3rem;
 }
 
+.myClass1 {
+    margin-bottom: 3rem;
+    opacity: 1;
+    transition: .2s ease;
+}
+
+.items:hover .myClass1 {
+    opacity: 0;
+}
+
+
+/* .myClass {
+    max-width: 90%;
+    position: absolute;
+    /* opacity: 0; */
+
+
+/* transition: .2s ease; */
+
+
+/* .items:hover .myClass {
+    position: absolute;
+    opacity: 1
+} */
+
 .work>a:hover,
 .work2>a:hover {
     background-image: none;
@@ -349,6 +374,8 @@ footer .type-heading-2 {
     font-size: 2rem;
     line-height: 1.8;
 }
+
+
 /* .content{
     margin:auto;
     width:88%;
@@ -358,8 +385,7 @@ footer .type-heading-2 {
 } */
 
 .overview-container {
-    padding-top:2rem;
-
+    padding-top: 2rem;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
@@ -370,11 +396,13 @@ footer .type-heading-2 {
 .overview-container h3 {
     width: 100%;
 }
-.top{
+
+.top {
     color: #0e002bb6;
-    padding-bottom:3rem;
-    width:100%;
+    padding-bottom: 3rem;
+    width: 100%;
 }
+
 .col {
     width: 43%;
 }
@@ -393,16 +421,13 @@ footer .type-heading-2 {
     flex-direction: column;
 }
 
-
 .post .type-heading-3 {
-    font-size:3rem;
+    font-size: 3rem;
     text-align: left;
     /* color:blue;
 
 font-weight:300; */
 }
-
-
 
 section .type-heading-2 {
     color: #f3f3f3;
@@ -528,7 +553,6 @@ section .type-heading-2 {
 
 /* navigation */
 
-
 .navbar {
     font-size: 2.5rem;
     list-style: none;
@@ -547,7 +571,7 @@ section .type-heading-2 {
 .dropbtn {
     font-size: 2rem;
     position: fixed;
-    right:2.2rem;
+    right: 2.2rem;
     top: 2.2rem;
     width: 2.3rem;
     height: 2.3rem;
@@ -586,31 +610,33 @@ section .type-heading-2 {
 }
 
 .logo {
-    color: #d4fcf4;
+    color: rgb(56, 238, 192);
     font-size: 3rem;
     position: absolute;
-    left:2.2rem;
+    left: 2.2rem;
     top: 1.8rem;
 }
 
 .navbar ul {
-padding:3rem;
-padding-right:0;}
+    padding: 3rem;
+    padding-right: 0;
+}
 
 .navbar li {
     list-style: none;
 }
 
-.nav-item{
-    padding:1rem;
-
+.nav-item {
+    padding: 1rem;
 }
+
 .navbar a {
     color: #d4fcf4;
     font-weight: 300;
 }
-.contact{
-    padding: 5rem 3rem ;
+
+.contact {
+    padding: 5rem 3rem;
 }
 
 .dark1 {
@@ -620,19 +646,19 @@ padding-right:0;}
 .navbar a:hover {
     color: rgb(56, 238, 192);
 }
-.navbar a .slider{
-    background-color: rgb(56, 238, 192);
 
+.navbar a .slider {
+    background-color: rgb(56, 238, 192);
 }
 
 .navbar ul li ul li a {
-    padding:0rem;
+    padding: 0rem;
     font-size: 1.7rem;
 }
 
 #navcon {
     padding-top: 0;
-    padding-left:2rem;
+    padding-left: 2rem;
 }
 
 i {
@@ -712,9 +738,12 @@ i {
 }
 
 @media screen and (max-width: 600px) {
-    html{
-    font-size: 60%;}
-
+    html {
+        font-size: 60%;
+    }
+    .type-heading-1 {
+        font-size: 3.7rem;
+    }
     .banner img {
         max-width: 70%;
     }
@@ -727,13 +756,18 @@ i {
     }
     .show {
         height: 100vh;
-        width: 70vw;
+        width: 90vw;
     }
     .value-list {
         width: 95%;
     }
     .section .post {
-        width: 95%;
+        margin-left: 0;
+        width: 90%;
+    }
+    .section .post img {
+        margin-left: 0;
+        max-width: 95%;
     }
 }
 

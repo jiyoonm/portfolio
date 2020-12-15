@@ -34,7 +34,7 @@ var fetchRecord = function(slug) {
         view: "Grid view"
     }).eachPage(function page(records, fetchNextPage) {
             records.forEach(function(record) {
-                data.push({ name: record.fields.Name, img: record.fields.FinalImages[0]['url'], collab: record.fields.Collaborators, skills: record.fields.Skills, role: record.fields.Role, time: record.fields.TimeFrame, about: record.fields.Description, overview: record.fields.Overview, concept: record.fields.Concept, prototype: record.fields.Prototype, final: record.fields.Final, overviewHead: record.fields.OverviewHeading, conceptHead: record.fields.ConceptHeading, processHead: record.fields.ProcessHeading, finalHead: record.fields.FinalHeading});
+                data.push({ name: record.fields.Name, img: record.fields.FinalImages[0]['url'], collab: record.fields.Collaborators, skills: record.fields.Skills, role: record.fields.Role, time: record.fields.TimeFrame, about: record.fields.Description, overview: record.fields.Overview, concept: record.fields.Concept, prototype: record.fields.Prototype, final: record.fields.Final, overviewHead: record.fields.OverviewHeading, conceptHead: record.fields.ConceptHeading, processHead: record.fields.ProcessHeading, finalHead: record.fields.FinalHeading });
                 $(".type-heading-2").append(data[0].name);
                 $("#about").append(data[0].about);
                 $("#skills").append(data[0].skills);
@@ -51,17 +51,13 @@ var fetchRecord = function(slug) {
                 $("#final-head").append(data[0].finalHead);
 
 
-                record.fields.FinalImages.forEach(function(attachment) {
-                    if (attachment.thumbnails) {
-                        $('<img />', {
-                            src: attachment.thumbnails.full.url,
-                        }).appendTo($(".image-container"))
-                    } else {
-                        $('<img />', {
-                            src: attachment.url,
-                        }).appendTo($(".image-container1"))
-                    }
-                });
+
+
+                $('<img />', {
+                    src: record.fields.FinalImages[0].url,
+
+                }).appendTo($(".image-container"))
+
 
                 if (record.fields.ConceptImages && record.fields.ConceptImages.length > 0) {
 
@@ -182,21 +178,34 @@ var makeNavigation = function() {
 
                 //Home page nav
                 var listItem = document.createElement('div')
-                listItem.classList.add('items');
                 var anchor = document.createElement('a');
+                anchor.classList.add('items');
+
                 var about = document.createElement('p');
                 var name = document.createElement('h3');
 
 
 
-                $('<img />', {
-                    
-                    src: record.fields.FinalImages[0].url,
-        
+
+                if (record.fields.FinalImages[1]) {
+
+                    $('<img />', {
+
+                        src: record.fields.FinalImages[1].url,
 
 
-                }).appendTo(listItem)
-                
+
+                    }).appendTo(listItem).addClass("myClass");
+                } else {
+                    $('<img />', {
+
+                        src: record.fields.FinalImages[0].url,
+
+
+
+                    }).appendTo(listItem).addClass("myClass");
+                }
+
 
 
                 name.innerHTML = heading + "<span class='diss'> &#8594</span>" + '<span class="slider" style="background-color: white"></span> ';
@@ -216,7 +225,7 @@ var makeNavigation = function() {
                     navigationContainer2.appendChild(anchor);
                 }
 
-      
+
 
             });
 
@@ -267,6 +276,3 @@ window.onclick = function(event) {
         }
     }
 }
-
-
-
