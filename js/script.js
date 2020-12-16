@@ -124,81 +124,78 @@ var makeButtonNav = function(slug) {
                 for (let i = 0; i < slugs.length; i++) {
                     if (slug == slugs[i]) {
 
-                        // a.addEventListener("mousemove", showHoverDiv);
-                        // let hoverdiv = document.getElementsByClassName("hover-div")[0];
-                        // hoverdiv.style.zIndex = -1;
-                        // hoverdiv.style.width = "250px";
-                        // hoverdiv.style.height = "250px";
-                        // hoverdiv.style.filter = "blur(5px) contrast(150%)";
-                        // hoverdiv.style.borderRadius = "200px";
 
-                        // function showHoverDiv(event) {
-                        //     hoverdiv.style.display = "block";
-                        //     hoverdiv.src = records[i].fields.cover_image[0].thumbnails.large.url;
-                        //     hoverdiv.style.position = "absolute";
-                        //     hoverdiv.style.top = `${event.pageY - 85}px`;
-                        //     hoverdiv.style.left = `${event.clientX - 85}px`;
-                        //     document.body.appendChild(hoverdiv);
-                        // }
-                        // a.addEventListener("mouseleave", () => {
-                        //     hoverdiv.style.display = "none";
-                        //     hoverdiv.src = "";
-                        //     hoverdiv.innerHTML = "";
-                        // });
 
-                        $('#previous').mouseover(function() {
-                            if (i > 0) {
-                                i--;
-                            } else if (i == 0) {
-                                i = slugs.length - 1;
-                            }
+
+                        let isMobile = window.matchMedia("only screen and (max-width: 760px)").matches;
+
+                        if (isMobile) {
                             $('#previous').click(function() {
-
+                                if (i > 0) {
+                                    i--;
+                                } else if (i == 0) {
+                                    i = slugs.length - 1;
+                                }
                                 window.location.href = "content.html?" + slugs[i];
                             });
-                            $("#my_image").css("opacity", .8);
-
-                            $("#my_image").attr("src", urls[i]);
-                        });
-                        $('#previous').mouseout(function() {
-                            if (i < slugs.length - 1) {
-                                i++;
-                            } else if (i == slugs.length - 1) {
-                                i = 0;
-                            }
-
-                            $("#my_image").css("opacity", 0);
-                        });
-
-
-                        $('#next').mouseover(function() {
-                            if (i < slugs.length - 1) {
-                                i++;
-                            } else if (i == slugs.length - 1) {
-                                i = 0;
-                            }
                             $('#next').click(function() {
-
+                                if (i < slugs.length - 1) {
+                                    i++;
+                                } else if (i == slugs.length - 1) {
+                                    i = 0;
+                                }
                                 window.location.href = "content.html?" + slugs[i];
                             });
-                            $("#my_image1").css("opacity", 1);
+                        } else {
+                            $('#previous').mouseover(function() {
+                                if (i > 0) {
+                                    i--;
+                                } else if (i == 0) {
+                                    i = slugs.length - 1;
+                                }
+                                $('#previous').click(function() {
 
-                            $("#my_image1").attr("src", urls[i]);
-                        });
-                        $('#next').mouseout(function() {
-                            if (i > 0) {
-                                i--;
-                            } else if (i == 0) {
-                                i = slugs.length - 1;
-                            }
-                            $("#my_image1").css("opacity", 0);
-                        });
+                                    window.location.href = "content.html?" + slugs[i];
+                                });
+                                $("#my_image").css("opacity", .8);
+
+                                $("#my_image").attr("src", urls[i]);
+                            });
+                            $('#previous').mouseout(function() {
+                                if (i < slugs.length - 1) {
+                                    i++;
+                                } else if (i == slugs.length - 1) {
+                                    i = 0;
+                                }
+
+                                $("#my_image").css("opacity", 0);
+                            });
+
+
+                            $('#next').mouseover(function() {
+                                if (i < slugs.length - 1) {
+                                    i++;
+                                } else if (i == slugs.length - 1) {
+                                    i = 0;
+                                }
+                                $('#next').click(function() {
+
+                                    window.location.href = "content.html?" + slugs[i];
+                                });
+                                $("#my_image1").css("opacity", 1);
+
+                                $("#my_image1").attr("src", urls[i]);
+                            });
+                            $('#next').mouseout(function() {
+                                if (i > 0) {
+                                    i--;
+                                } else if (i == 0) {
+                                    i = slugs.length - 1;
+                                }
+                                $("#my_image1").css("opacity", 0);
+                            });
+                        }
                     }
-                }
-
-                for (let i = 0; i < urls.length; i++) {
-
-
                 }
 
             });
