@@ -575,12 +575,12 @@ section .type-heading-2 {
 }
 
 .dropbtn {
-    font-size: 2rem;
+    font-size: 1.1rem;
     position: fixed;
     right: 3rem;
     top: 3rem;
-    width: 2.3rem;
-    height: 2.3rem;
+    width: 2.9rem;
+    height: 2.9rem;
     border-radius: 50%;
     background-color: rgba(7, 0, 255, .99);
     color: #f3f3f3;
@@ -588,6 +588,11 @@ section .type-heading-2 {
     cursor: pointer;
     z-index: 1000;
     transition: all .2s;
+    box-shadow: 0 0 10px rgba(8, 0, 255, 0.87);
+}
+
+i {
+    margin: auto;
 }
 
 #my_image {
@@ -607,6 +612,8 @@ section .type-heading-2 {
 }
 
 .dark {
+    color: rgba(7, 0, 255, .99);
+    box-shadow: 0 0 10px rgb(56, 238, 192);
     background-color: rgb(56, 238, 192);
 }
 
@@ -615,8 +622,8 @@ section .type-heading-2 {
 }
 
 .dropbtn:hover {
-    width: 3rem;
-    height: 3rem;
+    width: 3.4rem;
+    height: 3.4rem;
 }
 
 .dropdown-content {
@@ -662,6 +669,12 @@ section .type-heading-2 {
 }
 
 .dark1 {
+    box-shadow: none;
+    width: 3.4rem;
+    height: 3.4rem;
+    font-size: 2.5;
+    color: rgba(7, 0, 255, .99);
+    transform: rotate(135deg);
     background-color: rgb(56, 238, 192);
 }
 
@@ -700,6 +713,7 @@ i {
     display: flex;
     flex-wrap: wrap;
     padding-top: 4rem;
+    padding-bottom: 4rem;
     justify-content: space-between;
     /* align-items: center; */
     color: #d4fcf4;
@@ -811,6 +825,9 @@ i {
     html {
         font-size: 60%;
     }
+    .content {
+        height: 35vh;
+    }
     .content>div {
         width: 95%;
     }
@@ -825,7 +842,8 @@ i {
         font-size: 3.7rem;
     }
     .banner #content {
-        height: 12vh;
+        overflow: hidden;
+        height: 17vh;
     }
     .work2>a,
     .work>a {

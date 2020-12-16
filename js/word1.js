@@ -25,7 +25,7 @@ function update(data) {
             return d.text;
         })
         .on("click", function(d, i) {
-            window.open(d.url, "_blank");
+            window.href(d.url, "_blank");
         });
 
 
