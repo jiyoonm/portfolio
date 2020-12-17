@@ -181,6 +181,7 @@ footer .type-heading-2 {
 
 .values {
     padding: 5%;
+    padding-top: 0;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
