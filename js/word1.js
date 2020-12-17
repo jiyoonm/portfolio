@@ -28,7 +28,7 @@ function update(data) {
             return d.text;
         })
         .on("click", function(d, i) {
-            window.href(d.url, "_blank");
+            window.location.href = d.url;
         });
 
 
@@ -43,7 +43,7 @@ function update(data) {
         })
 
     .on("click", function(d, i) {
-        window.open(d.url, "_blank");
+        window.location.href = d.url;
     })
 
     .transition() // apply a transition
@@ -78,7 +78,7 @@ setInterval(function() {
 
 
     ];
-    var rand = Math.abs(Math.floor(Math.random() * data.length + 1 - 3) + 3);
+    var rand = Math.abs(Math.floor(Math.random() * data.length + 1 - 4) + 4);
     console.log(rand)
     shuffle(data);
 

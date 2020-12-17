@@ -16,7 +16,7 @@
     <div id="overlay" class="overlay"></div>
 
     <header>
-        <button id="btn" onclick="myFunction()" class="dropbtn">
+        <button id="btn1" onclick="myFunction()" class="dropbtn dark"></button>
 
         </button>
 
@@ -181,6 +181,19 @@
 
     <script src="js/airtable.browser.js "></script>
     <script src="js/script.js "></script>
+    <script>
+        var height1 = $(".title").outerHeight(); //gets height of header
+        console.log(height1)
+        var btn1 = document.getElementById("btn1");
+
+        $(window).scroll(function() {
+            if ($(window).scrollTop() > (500)) {
+                btn1.classList.remove('dark');
+            } else {
+                btn1.classList.add('dark');
+            }
+        });
+    </script>
 </body>
 
 </html>
