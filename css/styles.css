@@ -503,8 +503,8 @@ section .type-heading-2 {
 /* buttons */
 
 .buttons {
-    margin: 0rem auto 6rem;
-    width: 75vw;
+    margin: 0rem auto 10rem;
+    width: 70vw;
     display: flex;
     justify-content: space-between;
 }
@@ -547,12 +547,11 @@ section .type-heading-2 {
     background: transparent;
     border-radius: 50%;
     border: #0e002bb6 .08rem dashed;
-    transition: .2s;
+    /* transition: .2s; */
 }
 
 .button-secondary:hover {
     cursor: pointer;
-    color: #0e002b;
     border: #0e002bb6 .1rem dashed;
 }
 
@@ -598,17 +597,13 @@ i {
 #my_image {
     position: absolute;
     width: 15rem;
-    left: 2rem;
     opacity: 0;
-    /* filter: blur(.5px); */
 }
 
 #my_image1 {
     position: absolute;
     width: 15rem;
     opacity: 0;
-    right: 2rem;
-    filter: blur(.5px);
 }
 
 .dark {
@@ -818,6 +813,12 @@ i {
     .show {
         height: 100vh;
         width: 40vw;
+    }
+    .buttons {
+        justify-content: center;
+    }
+    .buttons>button {
+        margin: 2rem;
     }
 }
 

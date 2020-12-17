@@ -13,16 +13,6 @@ var fetchRecord = function(slug) {
 
     var formula = 'Slug="' + slug + '"';
 
-    // var heading = document.querySelector('.type-heading-2');
-    // var headingimg = document.querySelector('.image-container');
-    // var headingimg1 = document.querySelector('.image-container1');
-    // var headingimg2 = document.querySelector('.image-container2');
-    // var headingimg3 = document.querySelector('.image-container3');
-    // var headingimg4 = document.querySelector('.image-container4');
-    // var about = document.querySelector('.description');
-    // var listSkills = document.querySelector('.skills');
-
-
     base('Portfolio').select({
         filterByFormula: formula,
         maxRecords: 1,
@@ -80,7 +70,7 @@ var fetchRecord = function(slug) {
                     });
                 }
                 if (record.fields.ProcessVideo && record.fields.ProcessVideo.length > 0) {
-                    $('.video-container1').css("height", "75vh");
+                    $('.video-container1').css("height", "40vh");
 
                     $("#vid").attr("src", record.fields.ProcessVideo);
 
@@ -95,12 +85,17 @@ var fetchRecord = function(slug) {
                     });
                 }
                 if (record.fields.VideoFinal && record.fields.VideoFinal.length > 0) {
-                    $('.video-container').css("height", "70vh");
+                    $('.video-container').css("height", "80vh");
 
                     $("#ki").attr("src", record.fields.VideoFinal);
 
                 }
 
+                // if (record.fields.files && record.fields.files.length > 0) {
+                //     record.fields.files.forEach(function(attachment) {
+                //         $("#final").append(attachment.url);
+                //     });
+                // }
 
             });
 
@@ -124,12 +119,7 @@ var makeButtonNav = function(slug) {
                 for (let i = 0; i < slugs.length; i++) {
                     if (slug == slugs[i]) {
 
-
-
-
-                        let isMobile = window.matchMedia("only screen and (max-width: 760px)").matches;
-
-                        if (isMobile) {
+                        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
                             $('#previous').click(function() {
                                 if (i > 0) {
                                     i--;
@@ -157,7 +147,7 @@ var makeButtonNav = function(slug) {
 
                                     window.location.href = "content.html?" + slugs[i];
                                 });
-                                $("#my_image").css("opacity", .8);
+                                $("#my_image").css("opacity", 1);
 
                                 $("#my_image").attr("src", urls[i]);
                             });
@@ -167,7 +157,6 @@ var makeButtonNav = function(slug) {
                                 } else if (i == slugs.length - 1) {
                                     i = 0;
                                 }
-
                                 $("#my_image").css("opacity", 0);
                             });
 
@@ -332,3 +321,13 @@ window.onclick = function(event) {
         }
     }
 }
+$(document).mousemove(function(e) {
+    $('#my_image').offset({
+        left: e.pageX - 170,
+        top: e.pageY - 30
+    });
+    $('#my_image1').offset({
+        left: e.pageX + 20,
+        top: e.pageY - 30
+    });
+});
