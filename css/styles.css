@@ -123,11 +123,11 @@ footer .type-heading-2 {
     justify-content: center;
     align-items: center;
     /* padding: 5%; */
-    height: 56vh;
+    /* height: 56vh; */
     width: 80vw;
     margin: 0 auto;
-    padding-top: calc(80vmax /9);
-    padding-bottom: calc(80vmax / 10);
+    padding-top: calc(80vmax /7);
+    padding-bottom: calc(80vmax / 9);
 }
 
 .button-three {
