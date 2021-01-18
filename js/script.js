@@ -13,19 +13,6 @@ var fetchRecord = function(slug) {
 
     var formula = 'Slug="' + slug + '"';
 
-<<<<<<< HEAD
-    // var heading = document.querySelector('.type-heading-2');
-    // var headingimg = document.querySelector('.image-container');
-    // var headingimg1 = document.querySelector('.image-container1');
-    // var headingimg2 = document.querySelector('.image-container2');
-    // var headingimg3 = document.querySelector('.image-container3');
-    // var headingimg4 = document.querySelector('.image-container4');
-    // var about = document.querySelector('.description');
-    // var listSkills = document.querySelector('.skills');
-
-
-=======
->>>>>>> 66820d85954390cf976871e290c97116d7f7f110
     base('Portfolio').select({
         filterByFormula: formula,
         maxRecords: 1,
@@ -132,54 +119,6 @@ var makeButtonNav = function(slug) {
                 for (let i = 0; i < slugs.length; i++) {
                     if (slug == slugs[i]) {
 
-<<<<<<< HEAD
-                        $('#previous').mouseover(function() {
-                            if (i > 0) {
-                                i--;
-                            } else if (i == 0) {
-                                i = slugs.length - 1;
-                            }
-                            $('#previous').click(function() {
-
-                                window.location.href = "content.html?" + slugs[i];
-                            });
-                            $("#my_image").css("opacity", 1);
-
-                            $("#my_image").attr("src", urls[i]);
-                        });
-                        $('#previous').mouseout(function() {
-                            i++;
-                            $("#my_image").css("opacity", 0);
-                        });
-
-
-                        $('#next').mouseover(function() {
-                            if (i < slugs.length - 1) {
-                                i++;
-                            } else if (i == slugs.length - 1) {
-                                i = 0;
-                            }
-                            $('#next').click(function() {
-
-                                window.location.href = "content.html?" + slugs[i];
-                            });
-                            $("#my_image1").css("opacity", 1);
-
-                            $("#my_image1").attr("src", urls[i]);
-                        });
-                        $('#next').mouseout(function() {
-                            i--;
-                            $("#my_image1").css("opacity", 0);
-                        });
-                    }
-                }
-
-                for (let i = 0; i < urls.length; i++) {
-
-
-                }
-
-=======
                         if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
                             $('#previous').click(function() {
                                 if (i > 0) {
@@ -248,7 +187,6 @@ var makeButtonNav = function(slug) {
                     }
                 }
 
->>>>>>> 66820d85954390cf976871e290c97116d7f7f110
             });
         },
         function done(err) {
