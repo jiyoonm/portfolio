@@ -1,13 +1,16 @@
 var letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 var data = [
     { "text": "#designer", "url": "about.html" },
-    { "text": "#student", "url": "https://www.newschool.edu/parsons/" },
+    { "text": "#student", "url": "about.html" },
     { "text": "#dataviz", "url": "content.html?wifi" },
     { "text": "#d3.js", "url": "content.html?milk" },
     { "text": "#quantum", "url": "content.html?quantum" },
-    { "text": "#newyork", "url": "https://weather.com/weather/tenday/l/New+York+City+NY?canonicalCityId=a701ee19c4ab71bbbe2f6ba2fe8c250913883e5ae9b8eee8b54f8efbdb3eec03" },
+    { "text": "#newyork", "url": "content.html?wifi" },
     { "text": "#storytelling", "url": "content.html?garden" },
-    { "text": "#montgomery", "url": "https://weather.com/weather/tenday/l/d0dcbf29e9198a4a60c03897b069e4043fb5d083a05073e382460668bef0118d" }
+    { "text": "#noise", "url": "content.html?map" },
+    { "text": "#unity", "url": "content.html?museum" }
+
+
 
 
 ];
@@ -25,7 +28,7 @@ function update(data) {
             return d.text;
         })
         .on("click", function(d, i) {
-            window.open(d.url, "_blank");
+            window.location.href = d.url;
         });
 
 
@@ -40,7 +43,7 @@ function update(data) {
         })
 
     .on("click", function(d, i) {
-        window.open(d.url, "_blank");
+        window.location.href = d.url;
     })
 
     .transition() // apply a transition
@@ -63,23 +66,25 @@ setInterval(function() {
     // var data = [];
     var data = [
         { "text": "#designer", "url": "about.html" },
-        { "text": "#student", "url": "https://www.newschool.edu/parsons/" },
+        { "text": "#student", "url": "about.html" },
         { "text": "#dataviz", "url": "content.html?wifi" },
         { "text": "#d3.js", "url": "content.html?milk" },
         { "text": "#quantum", "url": "content.html?quantum" },
-        { "text": "#newyork", "url": "https://weather.com/weather/tenday/l/New+York+City+NY?canonicalCityId=a701ee19c4ab71bbbe2f6ba2fe8c250913883e5ae9b8eee8b54f8efbdb3eec03" },
+        { "text": "#newyork", "url": "content.html?wifi" },
         { "text": "#storytelling", "url": "content.html?garden" },
-        { "text": "#montgomery", "url": "https://weather.com/weather/tenday/l/d0dcbf29e9198a4a60c03897b069e4043fb5d083a05073e382460668bef0118d" }
+        { "text": "#noise", "url": "content.html?map" },
+        { "text": "#unity", "url": "content.html?museum" }
 
 
 
     ];
-    var rand = Math.floor(Math.random() * data.length + 1);
+    var rand = Math.abs(Math.floor(Math.random() * data.length + 1 - 4) + 4);
+    console.log(rand)
     shuffle(data);
 
     data = data.slice(0, rand);
     update(data);
-}, 2500);
+}, 3000);
 
 function shuffle(array) {
     array.sort(() => Math.random() - 0.5);
