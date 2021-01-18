@@ -62,30 +62,30 @@ function update(data) {
     .remove();
 }
 
-setInterval(function() {
-    // var data = [];
-    var data = [
-        { "text": "#designer", "url": "about.html" },
-        { "text": "#student", "url": "about.html" },
-        { "text": "#dataviz", "url": "content.html?wifi" },
-        { "text": "#d3.js", "url": "content.html?milk" },
-        { "text": "#quantum", "url": "content.html?quantum" },
-        { "text": "#newyork", "url": "content.html?wifi" },
-        { "text": "#storytelling", "url": "content.html?garden" },
-        { "text": "#noise", "url": "content.html?map" },
-        { "text": "#unity", "url": "content.html?museum" }
+// setInterval(function() {
+//     // var data = [];
+//     var data = [
+//         { "text": "#designer", "url": "about.html" },
+//         { "text": "#student", "url": "about.html" },
+//         { "text": "#dataviz", "url": "content.html?wifi" },
+//         { "text": "#d3.js", "url": "content.html?milk" },
+//         { "text": "#quantum", "url": "content.html?quantum" },
+//         { "text": "#newyork", "url": "content.html?wifi" },
+//         { "text": "#storytelling", "url": "content.html?garden" },
+//         { "text": "#noise", "url": "content.html?map" },
+//         { "text": "#unity", "url": "content.html?museum" }
 
 
 
-    ];
-    var rand = Math.abs(Math.floor(Math.random() * data.length + 1 - 4) + 4);
-    console.log(rand)
-    shuffle(data);
+//     ];
+//     var rand = Math.abs(Math.floor(Math.random() * data.length + 1 - 4) + 4);
+//     console.log(rand)
+//     shuffle(data);
 
-    data = data.slice(0, rand);
-    update(data);
-}, 3000);
+//     data = data.slice(0, rand);
+//     update(data);
+// }, 3000);
 
-function shuffle(array) {
-    array.sort(() => Math.random() - 0.5);
-}
+// function shuffle(array) {
+//     array.sort(() => Math.random() - 0.5);
+// }
