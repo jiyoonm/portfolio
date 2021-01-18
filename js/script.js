@@ -1,5 +1,5 @@
 var data = [];
-var slugs = [];
+
 
 var Airtable = require('airtable');
 var base = new Airtable({ apiKey: 'keyJvXFNWQIMm9EA2' }).base('apppokoJI4UZZFapT');
@@ -21,11 +21,6 @@ var fetchRecord = function(slug) {
     // var headingimg4 = document.querySelector('.image-container4');
     // var about = document.querySelector('.description');
     // var listSkills = document.querySelector('.skills');
-
-    // $(".type-heading-2").attr("src", icon);
-    // $(".image-container").append(weather);
-    // $(".image-container2").append(Math.floor(temp * 9 / 5 - 459.67) + " F")
-    // $(".image-container3").append(cityName + ", " + country)
 
 
     base('Portfolio').select({
@@ -115,6 +110,8 @@ var fetchRecord = function(slug) {
         });
 
 }
+var slugs = [];
+var urls = [];
 var makeButtonNav = function(slug) {
 
     base('Portfolio').select({
@@ -122,26 +119,57 @@ var makeButtonNav = function(slug) {
     }).eachPage(function page(records, fetchNextPage) {
             records.forEach(function(record) {
                 slugs.push(record.fields.Slug);
+                urls.push(record.fields.FinalImages[0].url);
+
                 for (let i = 0; i < slugs.length; i++) {
                     if (slug == slugs[i]) {
-                        $('#previous').click(function() {
+
+                        $('#previous').mouseover(function() {
                             if (i > 0) {
                                 i--;
                             } else if (i == 0) {
                                 i = slugs.length - 1;
                             }
-                            window.location.href = "content.html?" + slugs[i];
+                            $('#previous').click(function() {
+
+                                window.location.href = "content.html?" + slugs[i];
+                            });
+                            $("#my_image").css("opacity", 1);
+
+                            $("#my_image").attr("src", urls[i]);
                         });
-                        $('#next').click(function() {
+                        $('#previous').mouseout(function() {
+                            i++;
+                            $("#my_image").css("opacity", 0);
+                        });
+
+
+                        $('#next').mouseover(function() {
                             if (i < slugs.length - 1) {
                                 i++;
                             } else if (i == slugs.length - 1) {
                                 i = 0;
                             }
-                            window.location.href = "content.html?" + slugs[i];
+                            $('#next').click(function() {
+
+                                window.location.href = "content.html?" + slugs[i];
+                            });
+                            $("#my_image1").css("opacity", 1);
+
+                            $("#my_image1").attr("src", urls[i]);
+                        });
+                        $('#next').mouseout(function() {
+                            i--;
+                            $("#my_image1").css("opacity", 0);
                         });
                     }
                 }
+
+                for (let i = 0; i < urls.length; i++) {
+
+
+                }
+
             });
         },
         function done(err) {
