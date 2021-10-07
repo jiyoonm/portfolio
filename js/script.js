@@ -20,7 +20,7 @@ var fetchRecord = function(slug) {
     }).eachPage(function page(records, fetchNextPage) {
             records.forEach(function(record) {
                 data.push({ name: record.fields.Name, img: record.fields.FinalImages[0]['url'], collab: record.fields.Collaborators, skills: record.fields.Skills, role: record.fields.Role, time: record.fields.TimeFrame, about: record.fields.Description, overview: record.fields.Overview, concept: record.fields.Concept, prototype: record.fields.Prototype, final: record.fields.Final, overviewHead: record.fields.OverviewHeading, conceptHead: record.fields.ConceptHeading, processHead: record.fields.ProcessHeading, finalHead: record.fields.FinalHeading });
-                $(".type-heading-2").append(data[0].name);
+                $("#titlee").append(data[0].name);
                 $("#about").append(data[0].about);
                 $("#skills").append(data[0].skills);
                 $("#role").append(data[0].role);
@@ -35,15 +35,17 @@ var fetchRecord = function(slug) {
                 $("#process-head").append(data[0].processHead);
                 $("#final-head").append(data[0].finalHead);
 
-
-
-
-                $('<img />', {
-                    src: record.fields.FinalImages[0].url,
-
-                }).appendTo($(".image-container"))
-
-
+                if (record.fields.FinalImages && record.fields.FinalImages.length > 0) {
+                    if (record.fields.FinalImages && record.fields.FinalImages.length > 1) {
+                        $('<img />', {
+                            src: record.fields.FinalImages[1].url,
+                        }).appendTo($(".image-container"))
+                    } else {
+                        $('<img />', {
+                            src: record.fields.FinalImages[0].url,
+                        }).appendTo($(".image-container"))
+                    }
+                }
                 if (record.fields.ConceptImages && record.fields.ConceptImages.length > 0) {
 
                     record.fields.ConceptImages.forEach(function(attachment) {
@@ -58,7 +60,6 @@ var fetchRecord = function(slug) {
                         }
                     });
                 }
-
                 if (record.fields.ProcessImages && record.fields.ProcessImages.length > 0) {
 
                     record.fields.ProcessImages.forEach(function(attachment) {
@@ -159,8 +160,6 @@ var makeButtonNav = function(slug) {
                                 }
                                 $("#my_image").css("opacity", 0);
                             });
-
-
                             $('#next').mouseover(function() {
                                 if (i < slugs.length - 1) {
                                     i++;
@@ -253,7 +252,7 @@ var makeNavigation = function() {
 
 
 
-                name.innerHTML = heading + "<span class='diss'> &#8594</span>" + '<span class="slider" style="background-color: white"></span> ';
+                name.innerHTML = heading + "<span class='diss'> &#8594</span>" + '<span class="slider" style="background-color:rgb(22, 22, 22)"></span> ';
                 anchor.setAttribute('href', link);
                 about.innerHTML = record.fields.Description;
                 listItem.appendChild(name);
