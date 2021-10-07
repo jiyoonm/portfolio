@@ -8,7 +8,8 @@ var data = [
     { "text": "#newyork", "url": "content.html?wifi" },
     { "text": "#storytelling", "url": "content.html?garden" },
     { "text": "#noise", "url": "content.html?map" },
-    { "text": "#unity", "url": "content.html?museum" }
+    { "text": "#unity", "url": "content.html?museum" }, { "text": "#installation", "url": "content.html?beats" }
+
 
 
 
@@ -51,15 +52,15 @@ function update(data) {
         .duration(4000);
 
     u.exit()
-        // .transition()
-        // .style('left', function(d, i) {
-        //     return i * 32 + 'px';
-        // })
-        //     .transition()
-        //     .duration(500)
+        .transition()
+        .style('left', function(d, i) {
+            return i * 32 + 'px';
+        })
+        .transition()
+        .duration(500)
 
-    // .style("opacity", 0)
-    .remove();
+    .style("opacity", 0)
+        .remove();
 }
 
 // setInterval(function() {
@@ -78,13 +79,13 @@ function update(data) {
 
 
 //     ];
-//     var rand = Math.abs(Math.floor(Math.random() * data.length + 1 - 4) + 4);
+//     var rand = Math.abs(Math.floor(Math.random() * data.length));
 //     console.log(rand)
 //     shuffle(data);
 
 //     data = data.slice(0, rand);
 //     update(data);
-// }, 3000);
+// }, 2000);
 
 // function shuffle(array) {
 //     array.sort(() => Math.random() - 0.5);
