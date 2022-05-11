@@ -264,10 +264,10 @@ var makeNavigation = function() {
 
                     navigationContainer.appendChild(anchor);
                 }
-                if (record.fields.Type == "website" && navigationContainer2) {
+                // if (record.fields.Type == "website" && navigationContainer2) {
 
-                    navigationContainer2.appendChild(anchor);
-                }
+                //     navigationContainer2.appendChild(anchor);
+                // }
 
 
 
